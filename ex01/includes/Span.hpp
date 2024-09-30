@@ -6,7 +6,7 @@
 /*   By: nsouchal <nsouchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 08:48:28 by nsouchal          #+#    #+#             */
-/*   Updated: 2024/09/25 13:04:05 by nsouchal         ###   ########.fr       */
+/*   Updated: 2024/09/30 13:40:59 by nsouchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,18 @@ class Span
     void    addNumber(int nb);
     int     shortestSpan();
     int     longestSpan();
+    class   ContainerFullException : public std::exception
+    {
+        public:
+        ContainerFullException();
+        const char  *what() const throw();
+    };
+    class   ContainerEmptyException : public std::exception
+    {
+        public:
+        ContainerEmptyException();
+        const char  *what() const throw();
+    };
     template <typename ite> void    addNumber(ite begin_it, ite end_it)
     {
         unsigned int nbElemToAdd = std::distance(begin_it, end_it);
@@ -39,7 +51,7 @@ class Span
         else
         {
             this->vec_cont.insert(this->vec_cont.end(), begin_it, begin_it + (this->max_elem - this->vec_cont.size()));
-            throw std::exception();
+            throw Span::ContainerFullException();
         }
     }
   

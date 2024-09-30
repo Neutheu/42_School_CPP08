@@ -6,7 +6,7 @@
 /*   By: nsouchal <nsouchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 10:04:32 by nsouchal          #+#    #+#             */
-/*   Updated: 2024/09/25 13:16:55 by nsouchal         ###   ########.fr       */
+/*   Updated: 2024/09/30 13:49:22 by nsouchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int main()
 {
+    Span sp_large = Span(100001);
     Span sp = Span(100);
     std::deque<int> deque_container;
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 100000; i++)
     {
         deque_container.push_back(i);
     }
@@ -31,16 +32,15 @@ int main()
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-        sp.addNumber(11);
-        sp.addNumber(deque_container.begin(), deque_container.end());
+        sp_large.addNumber(deque_container.begin(), deque_container.end());
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
+        std::cout << sp_large.shortestSpan() << std::endl;
+        std::cout << sp_large.longestSpan() << std::endl;
     }
-    catch (const std::exception e)
+    catch (const std::exception &e)
     {
-        std::cout << "container is full" << std::endl;
+        std::cout << e.what() << std::endl;
     }
-    
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
-    
     return 0;
 }

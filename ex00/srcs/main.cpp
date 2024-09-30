@@ -6,7 +6,7 @@
 /*   By: nsouchal <nsouchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:15:25 by nsouchal          #+#    #+#             */
-/*   Updated: 2024/09/25 08:51:24 by nsouchal         ###   ########.fr       */
+/*   Updated: 2024/09/30 13:13:05 by nsouchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main ()
     std::vector<int> vector_cont;
     std::list<int>   list_cont;
     
-    vector_cont.push_back(3);    
+    vector_cont.push_back(-3);    
     vector_cont.push_back(1);    
     vector_cont.push_back(1);
     vector_cont.push_back(0);
@@ -30,7 +30,7 @@ int main ()
     
     try
     {
-        std::cout << ::easyfind(vector_cont, 3) << std::endl;
+        std::cout << ::easyfind(vector_cont, -3) << std::endl;
         std::cout << ::easyfind(vector_cont, 0) << std::endl;
         std::cout << ::easyfind(vector_cont, 1) << std::endl;
         std::cout << ::easyfind(vector_cont, 4) << std::endl;
